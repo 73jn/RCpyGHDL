@@ -4,6 +4,7 @@ from pyGHDL.libghdl       import name_table, files_map, errorout_console
 from pyGHDL.libghdl.vhdl  import nodes, sem_lib
 import pyGHDL.libghdl.utils as pyutils
 import pyGHDL.libghdl.vhdl.nodes_meta as nodes_meta
+import sys
 
 #xml parsing
 from xml.dom import minidom
@@ -48,8 +49,8 @@ class RCpyGHDL:
         # Parse file
         try:
             self.file = sem_lib.Load_File(sfe)
-            print("File : ")
-            print(self.file)
+            if self.file == nodes.Null_Iir:
+                sys.exit(1)
         except:
             print("ERROR parsing file "+ self.filename)
        
