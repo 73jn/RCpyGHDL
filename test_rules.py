@@ -3,7 +3,7 @@ import sys
 import os
 import RCpyGHDL
 import logging
-
+import time
 class LogFile(object):
     """File-like object to log text using the `logging` module."""
 
@@ -20,20 +20,31 @@ class LogFile(object):
 
 def AnalyzeFile(fichier):
    print('INFO:Analyze ',  fichier)
+   time.sleep(1)
    Rule = RCpyGHDL.RCpyGHDL("--std=08",fichier)
+   time.sleep(1)
    print("INFO: Rule CNE_02500 : list all entity ports")
+   time.sleep(1)
    Rule.CNE_02500()
+   time.sleep(1)
    print("INFO: Rule CNE_02600 : list all signals")
+   time.sleep(1)
    Rule.CNE_02600()
+   time.sleep(1)
    print("----------------") 
+   time.sleep(1)
    os._exit(0)  
 
 
 
 def AnalyzeAllFiles():
     #list all vhd file
+    print(1)
     listfiles=glob.glob("*.vhd")
+    time.sleep(1)
+    print(2)
     print(listfiles)
+    time.sleep(1)
 
 
     #apply rules on files
