@@ -46,13 +46,13 @@ def AnalyzeAllFiles():
 
 
 #initilize log file
-logging.basicConfig(level=logging.DEBUG, filename='analysis.log')
-logging.basicConfig(format='%(message)s', level=logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG, filename='analysis.log')
+#logging.basicConfig(format='%(message)s', level=logging.DEBUG)
 
 
 # Redirect stdout and stderr
-sys.stdout = LogFile('stdout')
-sys.stderr = LogFile('stderr')
+#sys.stdout = LogFile('stdout')
+#sys.stderr = LogFile('stderr')
 
 #launch analysis
 print("Before AnalyzeAllFiles")
