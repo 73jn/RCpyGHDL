@@ -48,7 +48,8 @@ class RCpyGHDL:
         # Parse file
         try:
             self.file = sem_lib.Load_File(sfe)
-            print("File : ", self.file)
+            print("File : ")
+            print(self.file)
         except:
             print("ERROR parsing file "+ self.filename)
        
