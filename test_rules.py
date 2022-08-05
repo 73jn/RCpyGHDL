@@ -22,6 +22,17 @@ def AnalyzeFile(fichier):
    print('INFO:Analyze ',  fichier)
    time.sleep(1)
    Rule = RCpyGHDL.RCpyGHDL("--std=08",fichier)
+   time.sleep(1)
+   print("INFO: Rule CNE_02500 : list all entity ports")
+   time.sleep(1)
+   Rule.CNE_02500()
+   time.sleep(1)
+   print("INFO: Rule CNE_02600 : list all signals")
+   time.sleep(1)
+   Rule.CNE_02600()
+   time.sleep(1)
+   print("----------------") 
+   time.sleep(1)
    os._exit(0)  
 
 
