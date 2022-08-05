@@ -45,14 +45,6 @@ class RCpyGHDL:
             print("ERROR cannot open file "+ self.filename)
             quit()
 
-        # Parse file
-        try:
-            self.file = sem_lib.Load_File(sfe)
-        except:
-            print("ERROR parsing file "+ self.filename)
-
-
-
 ########################
 ### Global functions
 ########################
