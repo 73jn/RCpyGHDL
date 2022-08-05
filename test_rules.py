@@ -71,4 +71,6 @@ def AnalyzeAllFiles():
 #sys.stderr = LogFile('stderr')
 
 #launch analysis
+print("Before AnalyzeAllFiles")
 AnalyzeAllFiles()
+print("After AnalyzeAllFiles")
