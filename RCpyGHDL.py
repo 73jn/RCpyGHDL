@@ -51,30 +51,7 @@ class RCpyGHDL:
         except:
             print("ERROR parsing file "+ self.filename)
 
-        #open handbook to get rules parameters
-        Hbk = minidom.parse(self.handbook)
-        #get all rule elements
-        for Rule in Hbk.getElementsByTagName("hb:Rule"):
-            #search for rules implemented 
-            # getElementsByTagName return a list of element. In our case only 1 field RuleUID       
 
-            if Rule.getElementsByTagName("hb:RuleUID")[0].firstChild.nodeValue == "CNE_02500":
-                try:
-                    self.CNE_02500_Relation=Rule.getElementsByTagName("hb:Relation")[0].firstChild.nodeValue
-                    self.CNE_02500_Value=Rule.getElementsByTagName("hb:Value")[0].firstChild.nodeValue
-                    #print("CNE_02500 "+self.CNE_02500_Relation+self.CNE_02500_Value)
-                except:
-                    print("ERROR reading CNE_02500 parameter from Handbook")
-                    pass
-
-            if Rule.getElementsByTagName("hb:RuleUID")[0].firstChild.nodeValue == "CNE_02600":
-                try:
-                    self.CNE_02600_Relation=Rule.getElementsByTagName("hb:Relation")[0].firstChild.nodeValue
-                    self.CNE_02600_Value=Rule.getElementsByTagName("hb:Value")[0].firstChild.nodeValue
-                    #print("CNE_02600 "+self.CNE_02600_Relation+self.CNE_02600_Value)
-                except:
-                    print("ERROR reading CNE_02600 parameter from Handbook")
-                    pass             
 
 ########################
 ### Global functions

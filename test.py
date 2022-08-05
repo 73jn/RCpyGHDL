@@ -1,11 +1,27 @@
-import pyGHDL.libghdl     as libghdl
 import glob
+import sys
 import os
+import RCpyGHDL
+import logging
 import time
+class LogFile(object):
+    """File-like object to log text using the `logging` module."""
+
+    def __init__(self, name=None):
+        self.logger = logging.getLogger(name)
+
+    def write(self, msg, level=logging.INFO):
+        self.logger.log(level, msg)
+
+    def flush(self):
+        for handler in self.logger.handlers:
+            handler.flush()
+
+
 def AnalyzeFile(fichier):
-    libghdl.initialize()
-    libghdl.analyze_init()
-    libghdl.analyze_file(fichier)
+   print('INFO:Analyze ',  fichier)
+   Rule = RCpyGHDL.RCpyGHDL("--std=08",fichier)
+   os._exit(0)  
 
 
 
@@ -13,6 +29,8 @@ def AnalyzeAllFiles():
     #list all vhd file
     listfiles=glob.glob("*.vhd")
     print(listfiles)
+
+
     #apply rules on files
     for fichier in listfiles:
         print(fichier)
@@ -26,4 +44,17 @@ def AnalyzeAllFiles():
         finally:
             pass
 
+
+#initilize log file
+logging.basicConfig(level=logging.DEBUG, filename='analysis.log')
+logging.basicConfig(format='%(message)s', level=logging.DEBUG)
+
+
+# Redirect stdout and stderr
+sys.stdout = LogFile('stdout')
+sys.stderr = LogFile('stderr')
+
+#launch analysis
+print("Before AnalyzeAllFiles")
 AnalyzeAllFiles()
+print("After AnalyzeAllFiles")
